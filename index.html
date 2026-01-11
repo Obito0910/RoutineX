@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>✨ RoutineX | Ultimate Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="light-theme">
+    <!-- Animated Background Elements -->
+    <div class="background-animation">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+      </div>
+      <div class="particles-container" id="particles-js"></div>
+      <div class="gradient-overlay"></div>
+    </div>
+
+    <!-- Star Dust Effect -->
+    <div class="star-dust">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+
+    <!-- Glowing Orbs -->
+    <div class="glowing-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Floating Header -->
+      <header class="floating-header">
+        <div class="header-content">
+          <div
+            class="logo animate__animated animate__pulse animate__infinite animate__slower"
+          >
+            <div class="logo-icon">
+              <i class="fas fa-star"></i>
+              <div class="pulse-ring"></div>
+            </div>
+            <h1 class="gradient-text">Routine<span>X</span></h1>
+            <div class="sparkles">
+              <i class="fas fa-sparkle sparkle-1"></i>
+              <i class="fas fa-sparkle sparkle-2"></i>
+              <i class="fas fa-sparkle sparkle-3"></i>
+            </div>
+          </div>
+
+          <div class="header-controls">
+            <div class="sound-toggle" id="sound-toggle">
+              <i class="fas fa-volume-up"></i>
+              <div class="sound-wave">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="theme-switch-wrapper">
+              <div class="theme-label">
+                <i class="fas fa-sun"></i>
+              </div>
+              <label class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider">
+                  <span class="switch-indicator"></span>
+                </span>
+              </label>
+              <div class="theme-label">
+                <i class="fas fa-moon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="subtitle typing-animation">
+          <span class="typed-text"
+            >Master Your Day • Achieve Your Goals • Boost Productivity</span
+          >
+          <span class="cursor">|</span>
+        </p>
+      </header>
+
+      <!-- Animated Stats Cards -->
+      <div class="stats-container">
+        <div
+          class="stat-card animate__animated animate__fadeInUp"
+          data-delay="0.1"
+        >
+          <div class="stat-icon shine">
+            <i class="fas fa-tasks"></i>
+            <div class="icon-glow"></div>
+          </div>
+          <div class="stat-info">
+            <div class="stat-counter">
+              <span class="counter" id="total-tasks" data-target="0">0</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Total Tasks</p>
+          </div>
+          <div class="progress-ring" data-percent="0">
+            <svg width="60" height="60">
+              <circle class="progress-bg" cx="30" cy="30" r="25"></circle>
+              <circle class="progress-fill" cx="30" cy="30" r="25"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div
+          class="stat-card animate__animated animate__fadeInUp"
+          data-delay="0.2"
+        >
+          <div class="stat-icon shine">
+            <i class="fas fa-check-double"></i>
+            <div class="icon-glow"></div>
+          </div>
+          <div class="stat-info">
+            <div class="stat-counter">
+              <span class="counter" id="completed-tasks" data-target="0"
+                >0</span
+              >
+              <span class="stat-percent">%</span>
+            </div>
+            <p class="stat-label">Completed</p>
+          </div>
+          <div class="progress-ring" data-percent="0">
+            <svg width="60" height="60">
+              <circle class="progress-bg" cx="30" cy="30" r="25"></circle>
+              <circle class="progress-fill" cx="30" cy="30" r="25"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div
+          class="stat-card animate__animated animate__fadeInUp"
+          data-delay="0.3"
+        >
+          <div class="stat-icon shine">
+            <i class="fas fa-hourglass-half"></i>
+            <div class="icon-glow"></div>
+          </div>
+          <div class="stat-info">
+            <div class="stat-counter">
+              <span class="counter" id="pending-tasks" data-target="0">0</span>
+              <span class="stat-trend">↗</span>
+            </div>
+            <p class="stat-label">Pending</p>
+          </div>
+          <div class="progress-ring" data-percent="0">
+            <svg width="60" height="60">
+              <circle class="progress-bg" cx="30" cy="30" r="25"></circle>
+              <circle class="progress-fill" cx="30" cy="30" r="25"></circle>
+            </svg>
+          </div>
+        </div>
+
+        <div
+          class="stat-card animate__animated animate__fadeInUp"
+          data-delay="0.4"
+        >
+          <div class="stat-icon shine">
+            <i class="fas fa-chart-line"></i>
+            <div class="icon-glow"></div>
+          </div>
+          <div class="stat-info">
+            <div class="stat-counter">
+              <span class="counter" id="productivity" data-target="0">0</span>
+              <span class="stat-percent">%</span>
+            </div>
+            <p class="stat-label">Productivity</p>
+          </div>
+          <div class="progress-ring" data-percent="0">
+            <svg width="60" height="60">
+              <circle class="progress-bg" cx="30" cy="30" r="25"></circle>
+              <circle class="progress-fill" cx="30" cy="30" r="25"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Card Container -->
+      <div class="main-content">
+        <!-- Left Panel (3D Card Effect) -->
+        <div class="left-panel">
+          <div class="card-3d">
+            <div class="card-content">
+              <div class="card-header">
+                <h2 class="card-title">
+                  <i class="fas fa-magic"></i>
+                  <span class="text-shimmer">Create New Task</span>
+                  <div class="title-underline"></div>
+                </h2>
+              </div>
+
+              <form id="task-form" class="task-form">
+                <div class="form-group floating-input">
+                  <input type="text" id="task-description" required />
+                  <label for="task-description">
+                    <i class="fas fa-pen"></i> Task Description
+                  </label>
+                  <div class="focus-line"></div>
+                  <div class="input-glow"></div>
+                </div>
+
+                <div class="form-group floating-input">
+                  <input type="time" id="task-time" required />
+                  <label for="task-time">
+                    <i class="fas fa-clock"></i> Schedule Time
+                  </label>
+                  <div class="focus-line"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-fire"></i> Priority Level
+                  </label>
+                  <div class="priority-selector">
+                    <div class="priority-option active" data-priority="1">
+                      <div class="priority-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                      </div>
+                      <span class="priority-text">Urgent</span>
+                      <div class="priority-pulse"></div>
+                    </div>
+                    <div class="priority-option" data-priority="2">
+                      <div class="priority-icon">
+                        <i class="fas fa-balance-scale"></i>
+                      </div>
+                      <span class="priority-text">Normal</span>
+                      <div class="priority-pulse"></div>
+                    </div>
+                    <div class="priority-option" data-priority="3">
+                      <div class="priority-icon">
+                        <i class="fas fa-leaf"></i>
+                      </div>
+                      <span class="priority-text">Low</span>
+                      <div class="priority-pulse"></div>
+                    </div>
+                  </div>
+                  <input type="hidden" id="task-priority" value="1" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fas fa-tags"></i> Category
+                  </label>
+                  <div class="category-chips">
+                    <span class="category-chip" data-category="work"
+                      >💼 Work</span
+                    >
+                    <span class="category-chip" data-category="study"
+                      >📚 Study</span
+                    >
+                    <span class="category-chip active" data-category="personal"
+                      >👤 Personal</span
+                    >
+                    <span class="category-chip" data-category="health"
+                      >💪 Health</span
+                    >
+                    <span class="category-chip" data-category="shopping"
+                      >🛒 Shopping</span
+                    >
+                  </div>
+                  <input type="hidden" id="task-category" value="personal" />
+                </div>
+
+                <button type="submit" class="btn-submit">
+                  <span class="btn-text">
+                    <i class="fas fa-plus-circle"></i> Add Task
+                  </span>
+                  <div class="btn-shine"></div>
+                  <div class="btn-particles"></div>
+                </button>
+              </form>
+
+              <div class="quick-actions">
+                <button class="action-btn" id="quick-morning">
+                  <i class="fas fa-sun"></i>
+                  <span>Morning Routine</span>
+                </button>
+                <button class="action-btn" id="quick-workout">
+                  <i class="fas fa-dumbbell"></i>
+                  <span>Workout Plan</span>
+                </button>
+                <button class="action-btn" id="quick-study">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span>Study Session</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="card-shine"></div>
+            <div class="card-glow"></div>
+          </div>
+        </div>
+
+        <!-- Right Panel (Task List) -->
+        <div class="right-panel">
+          <div class="card-3d">
+            <div class="card-content">
+              <div class="card-header">
+                <div class="header-title">
+                  <h2 class="card-title">
+                    <i class="fas fa-list-alt"></i>
+                    <span class="text-shimmer">Today's Tasks</span>
+                    <div class="title-underline"></div>
+                  </h2>
+                  <div class="time-display">
+                    <i class="fas fa-calendar-day"></i>
+                    <span id="current-date">Loading...</span>
+                  </div>
+                </div>
+
+                <div class="filter-section">
+                  <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">
+                      <i class="fas fa-layer-group"></i> All
+                      <span class="filter-count" id="count-all">0</span>
+                    </button>
+                    <button class="filter-tab" data-filter="pending">
+                      <i class="fas fa-hourglass-start"></i> Pending
+                      <span class="filter-count" id="count-pending">0</span>
+                    </button>
+                    <button class="filter-tab" data-filter="completed">
+                      <i class="fas fa-check-circle"></i> Done
+                      <span class="filter-count" id="count-completed">0</span>
+                    </button>
+                  </div>
+
+                  <div class="sort-dropdown">
+                    <select id="sort-tasks">
+                      <option value="priority">Priority</option>
+                      <option value="time">Time</option>
+                      <option value="category">Category</option>
+                    </select>
+                    <i class="fas fa-sort"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="task-list-container">
+                <div class="task-list" id="task-list">
+                  <div class="empty-state">
+                    <div class="empty-illustration">
+                      <i class="fas fa-clipboard-list"></i>
+                      <div class="empty-glow"></div>
+                    </div>
+                    <h3 class="empty-title">No Tasks Yet</h3>
+                    <p class="empty-text">
+                      Add your first task to get started!
+                    </p>
+                    <div class="empty-actions">
+                      <button class="btn-empty" id="suggest-tasks">
+                        <i class="fas fa-lightbulb"></i> Suggest Tasks
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="task-summary">
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="summary-info">
+                      <span class="summary-label">Today's Goal</span>
+                      <span class="summary-value" id="today-goal">80%</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="summary-info">
+                      <span class="summary-label">Focus Score</span>
+                      <span class="summary-value" id="focus-score">0</span>
+                    </div>
+                  </div>
+                  <div class="summary-item">
+                    <div class="summary-icon">
+                      <i class="fas fa-hourglass-end"></i>
+                    </div>
+                    <div class="summary-info">
+                      <span class="summary-label">Time Left</span>
+                      <span class="summary-value" id="time-left">24h</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-shine"></div>
+            <div class="card-glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Control Panel -->
+      <div class="control-panel">
+        <button class="control-btn" id="save-btn">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span>Save</span>
+          <div class="btn-pulse"></div>
+        </button>
+        <button class="control-btn" id="load-btn">
+          <i class="fas fa-cloud-download-alt"></i>
+          <span>Load</span>
+        </button>
+        <button class="control-btn" id="export-btn">
+          <i class="fas fa-file-export"></i>
+          <span>Export</span>
+        </button>
+        <button class="control-btn btn-danger" id="clear-btn">
+          <i class="fas fa-broom"></i>
+          <span>Clear All</span>
+        </button>
+        <button class="control-btn btn-success" id="celebrate-btn">
+          <i class="fas fa-fireworks"></i>
+          <span>Celebrate!</span>
+        </button>
+      </div>
+
+      <!-- ========== C++ BUTTON SECTION ========== -->
+      <!-- Celebrate ke neeche center mein -->
+      <button
+        class="cpp-main-btn"
+        id="cpp-main-btn"
+        onclick="window.location.href='cpp.html'"
+      >
+        <div class="cpp-btn-content">
+          <div class="cpp-icon">
+            <i class="fab fa-cuttlefish"></i>
+            <i class="fas fa-plus plus-small"></i>
+            <i class="fas fa-plus plus-small"></i>
+            <div class="cpp-glow"></div>
+          </div>
+          <div class="cpp-text">
+            <span class="cpp-title">C++ Console Version</span>
+            <span class="cpp-subtitle">Download complete source code</span>
+          </div>
+          <div class="cpp-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="cpp-btn-shine"></div>
+      </button>
+      <!-- ========== END C++ BUTTON ========== -->
+
+      <!-- Floating Action Button -->
+      <button class="fab" id="fab-help">
+        <i class="fas fa-question"></i>
+        <div class="fab-ring"></div>
+      </button>
+
+      <!-- Achievement Badges -->
+      <div class="achievement-toast" id="achievement-toast">
+        <div class="achievement-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="achievement-content">
+          <h4 class="achievement-title">New Achievement!</h4>
+          <p class="achievement-text">Task Master - Complete 5 tasks</p>
+        </div>
+        <button class="achievement-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container"></div>
+
+    <!-- Sound Effects -->
+    <audio id="sound-click" preload="auto">
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="sound-complete" preload="auto">
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <audio id="sound-notification" preload="auto">
+      <source
+        src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+  </body>
+</html>
